@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="521.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ni.edu.uam.practicafiledirectorychooser.RegistroEstudianteController">
+   <children>
+      <VBox alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="370.0" prefWidth="500.0" spacing="15.0">
+         <children>
+            <Label text="Registro de Estudiante">
+               <font>
+                  <Font name="Times New Roman Bold" size="18.0" />
+               </font></Label>
+            <Separator prefWidth="200.0" />
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="244.00001525878906" minWidth="10.0" prefWidth="138.00001525878906" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="361.99998474121094" minWidth="10.0" prefWidth="361.99998474121094" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Nombre Completo:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Edad:" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Carrera:" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label text="Carnet:" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtNombre" promptText="Ingrese el Nombre del Estudiante" GridPane.columnIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtEdad" promptText="Ingrese la Edad del Estudiante" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtCarrera" promptText="Ingrese la Carrera que Cursa el Estudiante" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="txtCarnet" promptText="Ingrese el Número de Carnet del Estudiante" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER" prefHeight="47.0" prefWidth="500.0" spacing="15.0">
+               <children>
+                  <Label text="Archivo de requerimientos:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtRequerimiento" editable="false" prefHeight="26.0" prefWidth="248.0" promptText="Seleccione un archivo">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnAgregarRequerimiento" mnemonicParsing="false" onAction="#agregarRequerimiento" text="Agregar">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="42.0" prefWidth="500.0" spacing="15.0">
+               <children>
+                  <Label text="Directorio:">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDirectorio" editable="false" prefHeight="26.0" prefWidth="321.0" promptText="Seleccione el Directorio del Archivo">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnDirectorio" mnemonicParsing="false" onAction="#seleccionarDirectorio" text="Seleccionar">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="35.0" prefWidth="333.0" spacing="15.0">
+               <children>
+                  <Button fx:id="btnGuardar" mnemonicParsing="false" onAction="#guardarDatos" text="Guardar">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnLimpiarDatos" mnemonicParsing="false" onAction="#limpiarDatos" text="Limpiar">
+                     <font>
+                        <Font name="Times New Roman" size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children></VBox>
+   </children>
+</AnchorPane>

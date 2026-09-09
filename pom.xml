@@ -60,7 +60,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                ni.edu.uam.practicafiledirectorychooser/ni.edu.uam.practicafiledirectorychooser.RegistroProyectoApplication
+                                ni.edu.uam.practicafiledirectorychooser/ni.edu.uam.practicafiledirectorychooser.MenuPrincipalApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

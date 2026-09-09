@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="apPrincipal" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="ni.edu.uam.practicafiledirectorychooser.MenuPrincipalController">
+    <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="600.0">
+        <Menu fx:id="mnuCatalogo" mnemonicParsing="false" text="Catálogo">
+            <MenuItem fx:id="miRegistroEstudiante" mnemonicParsing="false" onAction="#abrirRegistroEstudiante"
+                      text="Registro Estudiante"/>
+            <MenuItem fx:id="miRegistroProyecto" mnemonicParsing="false" onAction="#abrirRegistroProyecto"
+                      text="Registro Proyecto"/>
+        </Menu>
+        <Menu fx:id="mnuSalir" mnemonicParsing="false" onAction="#cerrarPrograma" text="Salir"/>
+    </MenuBar>
+</AnchorPane>

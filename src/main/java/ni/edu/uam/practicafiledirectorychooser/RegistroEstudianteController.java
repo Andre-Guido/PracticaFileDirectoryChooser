@@ -11,33 +11,35 @@ import javafx.stage.FileChooser;
 import java.io.File;
 import java.util.Optional;
 
-public class RegistroProyectoController {
+public class RegistroEstudianteController {
     @FXML
-    private TextField txtNombreProyecto;
+    private TextField txtNombre;
     @FXML
-    private TextField txtNombreResponsable;
+    private TextField txtEdad;
     @FXML
-    private TextField txtDescripcion;
+    private TextField txtCarrera;
+    @FXML
+    private TextField txtCarnet;
     @FXML
     private TextField txtRequerimiento;
     @FXML
     private TextField txtDirectorio;
     @FXML
-    private Button btnSeleccionarArchivo;
+    private Button btnAgregarRequerimiento;
     @FXML
-    private Button btnSeleccionarDirectorio;
+    private Button btnDirectorio;
 
     @FXML
-    private void seleccionarArchivo() {
+    private void agregarRequerimiento() {
         FileChooser fc = new FileChooser();
-        fc.setTitle("Seleccionar Archivo");
+        fc.setTitle("Agregar Archivo");
         fc.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("Archivo TXT", "*.txt"),
                 new FileChooser.ExtensionFilter("Archivo PDF", "*.pdf"),
                 new FileChooser.ExtensionFilter("Archivo Excel", "*.xlsx"),
                 new FileChooser.ExtensionFilter("Archivo Word", "*.docx")
         );
-        File f = fc.showOpenDialog(btnSeleccionarArchivo.getScene().getWindow());
+        File f = fc.showOpenDialog(btnAgregarRequerimiento.getScene().getWindow());
         if (f != null) {
             txtRequerimiento.setText(f.getAbsolutePath());
         }
@@ -48,7 +50,7 @@ public class RegistroProyectoController {
         DirectoryChooser dc = new DirectoryChooser();
         dc.setTitle("Seleccionar Directorio");
         dc.setInitialDirectory(new File("C:\\"));
-        File f = dc.showDialog(btnSeleccionarDirectorio.getScene().getWindow());
+        File f = dc.showDialog(btnDirectorio.getScene().getWindow());
         if (f != null) {
             txtDirectorio.setText(f.getAbsolutePath());
         }
@@ -59,24 +61,24 @@ public class RegistroProyectoController {
         if (!validarFormulario()) {
             Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
             confirmacion.setTitle("Confirmación");
-            confirmacion.setHeaderText("¿Seguro que quiere guardar el proyecto?");
-            confirmacion.setContentText("Proyecto: " +  txtNombreProyecto.getText());
+            confirmacion.setHeaderText("¿Seguro que quiere guardar los datos del estudiante?");
+            confirmacion.setContentText("Estudiante: " +  txtNombre.getText());
 
             Optional<ButtonType> respuesta = confirmacion.showAndWait();
             if(respuesta.isPresent() && respuesta.get() == ButtonType.OK){
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Proyecto guardado");
-                alert.setHeaderText("Proyecto guardado");
-                alert.setContentText("Proyecto guardado");
+                alert.setTitle("Estudiante guardado");
+                alert.setHeaderText("Estudiante guardado");
+                alert.setContentText("Estudiante guardado");
                 limpiarDatos();
             }
         }
     }
 
     private boolean validarFormulario() {
-        if (txtNombreProyecto.getText().isEmpty() || txtNombreResponsable.getText().isEmpty() ||
-                txtDescripcion.getText().isEmpty() || txtRequerimiento.getText().isEmpty() ||
-                txtDirectorio.getText().isEmpty()) {
+        if (txtNombre.getText().isEmpty() || txtEdad.getText().isEmpty() ||
+                txtCarrera.getText().isEmpty() || txtCarnet.getText().isEmpty() ||
+                txtRequerimiento.getText().isEmpty() || txtDirectorio.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Error de validación");
             alert.setHeaderText(null);
@@ -89,9 +91,10 @@ public class RegistroProyectoController {
 
     @FXML
     private void limpiarDatos() {
-        txtNombreProyecto.clear();
-        txtNombreResponsable.clear();
-        txtDescripcion.clear();
+        txtNombre.clear();
+        txtEdad.clear();
+        txtCarrera.clear();
+        txtCarnet.clear();
         txtRequerimiento.clear();
         txtDirectorio.clear();
     }
