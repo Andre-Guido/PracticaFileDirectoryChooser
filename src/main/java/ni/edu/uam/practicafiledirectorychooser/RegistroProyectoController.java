@@ -87,6 +87,7 @@ public class RegistroProyectoController {
         return true;
     }
 
+    @FXML
     private void limpiarDatos() {
         txtNombreProyecto.clear();
         txtNombreResponsable.clear();
