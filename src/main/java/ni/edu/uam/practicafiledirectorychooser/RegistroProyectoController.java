@@ -1,15 +1,15 @@
 package ni.edu.uam.practicafiledirectorychooser;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 import java.io.File;
-import java.io.IOException;
+import java.util.Optional;
 
 public class RegistroProyectoController {
     @FXML
@@ -44,7 +44,7 @@ public class RegistroProyectoController {
     }
 
     @FXML
-    private void seleccionarDirectorio(){
+    private void seleccionarDirectorio() {
         DirectoryChooser dc = new DirectoryChooser();
         dc.setTitle("Seleccionar Directorio");
         dc.setInitialDirectory(new File(System.getProperty("C:\\")));
@@ -56,10 +56,34 @@ public class RegistroProyectoController {
 
     @FXML
     private void guardarDatos() {
+        if (!validarFormulario()) {
+            Alert confirmacion = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmacion.setTitle("Confirmación");
+            confirmacion.setHeaderText("¿Seguro que quiere guardar el proyecto?");
+            confirmacion.setContentText("Proyecto: " +  txtNombreProyecto.getText());
 
+            Optional<ButtonType> respuesta = confirmacion.showAndWait();
+            if(respuesta.isPresent() && respuesta.get() == ButtonType.OK){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Proyecto guardado");
+                alert.setHeaderText("Proyecto guardado");
+                alert.setContentText("Proyecto guardado");
+                limpiarDatos();
+            }
+        }
     }
 
-    private boolean validarFormulario(){
+    private boolean validarFormulario() {
+        if (txtNombreProyecto.getText().isEmpty() || txtNombreResponsable.getText().isEmpty() ||
+                txtDescripcion.getText().isEmpty() || txtRequerimiento.getText().isEmpty() ||
+                txtDirectorio.getText().isEmpty()) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error de validación");
+            alert.setHeaderText(null);
+            alert.setContentText("Todos los campos son obligatorios.");
+            alert.showAndWait();
+            return false;
+        }
         return true;
     }
 
